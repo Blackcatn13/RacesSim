@@ -21,3 +21,9 @@
 *.vcxproj.filters
 *.vcxproj.user
 *.ipch
+
+#Visual Studio Folders
+ipch/
+[Dd]ebug/
+[Rr]elease/
+build/

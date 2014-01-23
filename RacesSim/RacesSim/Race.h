@@ -7,7 +7,7 @@ public:
     Race(void);
     ~Race(void);
 
-    virtual void Update(float tick);
+    void Update(float tick);
 
 protected:
     long int    m_Population;
