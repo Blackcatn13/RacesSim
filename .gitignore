@@ -20,3 +20,4 @@
 *.vcxproj
 *.vcxproj.filters
 *.vcxproj.user
+*.ipch
