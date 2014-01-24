@@ -23,7 +23,7 @@ int main ()
             r.setPopulationGettingDamage(false);
             r.setFighting(false);
         }
-        if(i == 8000)
+        if(i == 7500)
             r.setFighting(true);
         if(i == 8100)
             r.setPopulationGettingDamage(true);
