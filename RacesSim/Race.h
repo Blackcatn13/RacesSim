@@ -18,28 +18,56 @@ public:
     void setPopulationGettingDamage(bool damage) {m_PopulationGettingDamage = damage;}
 
 protected:
+    // ------------------
+    // Race Values
+    // ------------------
+
+    // Population value of the race.
     long int    m_Population;
+    // The population that's military in the race.
     long int    m_MilitaryPopulation;
+
+    // ------------------
+    // Race Nature
+    // ------------------
+
+    // Rate of growing of the population.
     float       m_PopulationGrowthRate;
-    float       m_PopulationCurrentGrowthRate;
+    // Probability of expanding over the world if suficient population reached.
     float       m_ExpandProbability;
+    // Probability of picking a fight if other races is near.
     float       m_FigthProbability;
+    // Probability of figthing back if under attack.
     float       m_AttackBackProbability;
+    // Probability of making peace if under or ongoing attack.
     float       m_PeaceProbability;
+    // Probability of crossover the race with other neighbor races.
     float       m_CrossoverProbability;
+    // Rate of growing when not in war.
+    float       m_PopulationPeaceGrowthRate;
+    // Rate of growing when in war and under attack.
+    float       m_PopulationWarGrowthRate;
+    // Percentage of military traits of the race.
+    float       m_MilitaryTrait;
+    // Percentage of cience traits of the race.
+    float       m_CienceTrait;
+    // Percentage of naturist traits of the race.
+    float       m_NaturistTrait;
+
+    // ------------------
+    // Auxiliary vars
+    // ------------------
+
+    float       m_PopulationCurrentGrowthRate;
+
+    bool        m_DeadRace;
     bool        m_Fighting; 
-    //bool        m_Peace;
     bool        m_PopulationGettingDamage;
+
     double      m_TimeInPeace;
     double      m_PopulationPeaceGrowth;
-    float       m_PopulationPeaceGrowthRate;
     double      m_TimeInWar;
     double      m_PopulationWarGrowth;
-    float       m_PopulationWarGrowthRate;
-    bool        m_DeadRace;
-    float       m_MilitaryTrait;
-    float       m_CienceTrait;
-    float       m_NaturistTrait;
 };
 
 #endif
