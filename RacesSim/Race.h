@@ -19,6 +19,7 @@ public:
 
 protected:
     long int    m_Population;
+    long int    m_MilitaryPopulation;
     float       m_PopulationGrowthRate;
     float       m_PopulationCurrentGrowthRate;
     float       m_ExpandProbability;
@@ -36,6 +37,9 @@ protected:
     double      m_PopulationWarGrowth;
     float       m_PopulationWarGrowthRate;
     bool        m_DeadRace;
+    float       m_MilitaryTrait;
+    float       m_CienceTrait;
+    float       m_NaturistTrait;
 };
 
 #endif
