@@ -7,7 +7,7 @@ Race::Race(void)
     m_PopulationGrowthRate = 0;
     m_PopulationCurrentGrowthRate = 0;
     m_ExpandProbability = 0;
-    m_FigthProbability = 0;
+    m_FightProbability = 0;
     m_AttackBackProbability = 0;
     m_PeaceProbability = 0;
     m_CrossoverProbability = 0;
@@ -33,7 +33,7 @@ Race::Race(long int pop, float popRate, float expRate, float figRate, float attR
     m_PopulationGrowthRate = popRate;
     m_PopulationCurrentGrowthRate = popRate;
     m_ExpandProbability = expRate;
-    m_FigthProbability = figRate;
+    m_FightProbability = figRate;
     m_AttackBackProbability = attRate;
     m_PeaceProbability = peaRate;
     m_CrossoverProbability = crossRate;

@@ -33,11 +33,11 @@ protected:
 
     // Rate of growing of the population.
     float       m_PopulationGrowthRate;
-    // Probability of expanding over the world if suficient population reached.
+    // Probability of expanding over the world if sufficient population reached.
     float       m_ExpandProbability;
     // Probability of picking a fight if other races is near.
-    float       m_FigthProbability;
-    // Probability of figthing back if under attack.
+    float       m_FightProbability;
+    // Probability of fighting back if under attack.
     float       m_AttackBackProbability;
     // Probability of making peace if under or ongoing attack.
     float       m_PeaceProbability;
@@ -49,8 +49,8 @@ protected:
     float       m_PopulationWarGrowthRate;
     // Percentage of military traits of the race.
     float       m_MilitaryTrait;
-    // Percentage of cience traits of the race.
-    float       m_CienceTrait;
+    // Percentage of science traits of the race.
+    float       m_ScienceTrait;
     // Percentage of naturist traits of the race.
     float       m_NaturistTrait;
 
