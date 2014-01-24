@@ -51,13 +51,16 @@ Race::Race(long int pop, float popRate, float expRate, float figRate, float attR
 void Race::Update(double tick)
 {
     std::cout << "Tick value: " << tick << std::endl;
+    // If the race is not dead
     if(!m_DeadRace)
     {
+        // If the races is not currently fighting
         if(!m_Fighting)
         {
             m_TimeInWar = 0;            
             if(m_TimeInPeace == 0)
                 m_PopulationCurrentGrowthRate = m_PopulationGrowthRate;
+            // If it has been enough time in peace increase the growth rate
             if(m_TimeInPeace >= m_PopulationPeaceGrowth)
             {
                 m_PopulationCurrentGrowthRate += m_PopulationPeaceGrowthRate;
@@ -67,15 +70,18 @@ void Race::Update(double tick)
             m_TimeInPeace += tick;
         }
         else
+        // If we are in war at the moment
         {
             m_TimeInPeace = 0;
             if(m_TimeInWar == 0 && !m_PopulationGettingDamage)
                 m_PopulationCurrentGrowthRate = 0;
             if(m_TimeInWar >= m_PopulationWarGrowth)
             {
+                // If it has been enough time in war and the population is having damage change the growth rate
                 if(m_PopulationGettingDamage)
                     m_PopulationCurrentGrowthRate += m_PopulationWarGrowthRate;
                 else
+                    // If the population is not having damage
                     m_PopulationCurrentGrowthRate = 0;
                 m_TimeInWar = 0;
             }
