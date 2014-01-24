@@ -48,6 +48,39 @@ Race::Race(long int pop, float popRate, float expRate, float figRate, float attR
     m_DeadRace = false;
 }
 
+void Race::addMilitaryTrait(int traits)
+{
+    float MilitaryTraits = m_MilitaryTrait * m_TotalTraitsPoints;
+    float ScienceTraits = m_ScienceTrait * m_TotalTraitsPoints;
+    float NaturistTraits = m_NaturistTrait * m_TotalTraitsPoints;
+    m_TotalTraitsPoints = MilitaryTraits + ScienceTraits + NaturistTraits + traits;
+    m_MilitaryTrait = (MilitaryTraits + traits) / m_TotalTraitsPoints;
+    m_ScienceTrait = ScienceTraits / m_TotalTraitsPoints;
+    m_NaturistTrait = NaturistTraits / m_TotalTraitsPoints;
+}
+
+void Race::addScienceTrait(int traits)
+{
+    float MilitaryTraits = m_MilitaryTrait * m_TotalTraitsPoints;
+    float ScienceTraits = m_ScienceTrait * m_TotalTraitsPoints;
+    float NaturistTraits = m_NaturistTrait * m_TotalTraitsPoints;
+    m_TotalTraitsPoints = MilitaryTraits + ScienceTraits + NaturistTraits + traits;
+    m_MilitaryTrait = MilitaryTraits / m_TotalTraitsPoints;
+    m_ScienceTrait = (ScienceTraits + traits) / m_TotalTraitsPoints;
+    m_NaturistTrait = NaturistTraits / m_TotalTraitsPoints;
+}
+
+void Race::addNaturistTrait(int traits)
+{
+    float MilitaryTraits = m_MilitaryTrait * m_TotalTraitsPoints;
+    float ScienceTraits = m_ScienceTrait * m_TotalTraitsPoints;
+    float NaturistTraits = m_NaturistTrait * m_TotalTraitsPoints;
+    m_TotalTraitsPoints = MilitaryTraits + ScienceTraits + NaturistTraits + traits;
+    m_MilitaryTrait = MilitaryTraits / m_TotalTraitsPoints;
+    m_ScienceTrait = ScienceTraits / m_TotalTraitsPoints;
+    m_NaturistTrait = (NaturistTraits + traits) / m_TotalTraitsPoints;
+}
+
 void Race::Update(double tick)
 {
     std::cout << "Tick value: " << tick << std::endl;

@@ -16,6 +16,9 @@ public:
     void setPopulationWarGrowthRate(float rate) {m_PopulationWarGrowthRate = rate;}
     void setFighting(bool fight) {m_Fighting = fight;}
     void setPopulationGettingDamage(bool damage) {m_PopulationGettingDamage = damage;}
+    void addMilitaryTrait(int traits);
+    void addScienceTrait(int traits);
+    void addNaturistTrait(int traits);
 
 protected:
     // ------------------
@@ -59,6 +62,7 @@ protected:
     // ------------------
 
     float       m_PopulationCurrentGrowthRate;
+    float       m_TotalTraitsPoints;
 
     bool        m_DeadRace;
     bool        m_Fighting; 
