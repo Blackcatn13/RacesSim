@@ -6,7 +6,7 @@ class Race
 public:
     Race(void);
     ~Race(void);
-    Race(long int, float, float, float, float, float, float, bool);
+    Race(long int, float, float, float, float, float, float, float, bool);
 
     void Update(double tick);
 
@@ -56,6 +56,8 @@ protected:
     float       m_ScienceTrait;
     // Percentage of naturist traits of the race.
     float       m_NaturistTrait;
+    // Percentage of population converted to military
+    float       m_MilitaryRate;
 
     // ------------------
     // Auxiliary vars

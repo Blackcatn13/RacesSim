@@ -4,7 +4,7 @@
 
 int main ()
 {
-    Race r = Race(100, 0.5, 0, 0, 0, 0, 0, 0);
+    Race r = Race(100, 0.5, 0, 0, 0, 0, 0, .15, false);
     r.setPopulationPeaceGrowth(1);
     r.setPopulationPeaceGrowthRate(0.1);
     r.setPopulationWarGrowth(0.8);

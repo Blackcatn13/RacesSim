@@ -20,6 +20,12 @@ Race::Race(void)
     m_PopulationWarGrowth = 0;
     m_PopulationWarGrowthRate = 0;
     m_DeadRace = false;
+    m_MilitaryPopulation = 0;
+    m_MilitaryRate = 0;
+    m_MilitaryTrait = 0;
+    m_NaturistTrait = 0;
+    m_ScienceTrait = 0;
+    m_TotalTraitsPoints = 0;
 }
 
 
@@ -27,9 +33,11 @@ Race::~Race(void)
 {
 }
 
-Race::Race(long int pop, float popRate, float expRate, float figRate, float attRate, float peaRate, float crossRate, bool fight)
+Race::Race(long int pop, float popRate, float expRate, float figRate, float attRate, float peaRate, float crossRate, float milRate, bool fight)
 {
     m_Population = pop;
+    m_MilitaryPopulation = 0;
+    m_MilitaryRate = milRate;
     m_PopulationGrowthRate = popRate;
     m_PopulationCurrentGrowthRate = popRate;
     m_ExpandProbability = expRate;
@@ -46,6 +54,10 @@ Race::Race(long int pop, float popRate, float expRate, float figRate, float attR
     m_PopulationWarGrowth = 0;
     m_PopulationWarGrowthRate = 0;
     m_DeadRace = false;
+    m_MilitaryTrait = 0;
+    m_NaturistTrait = 0;
+    m_ScienceTrait = 0;
+    m_TotalTraitsPoints = 0;
 }
 
 void Race::addMilitaryTrait(int traits)
@@ -83,7 +95,6 @@ void Race::addNaturistTrait(int traits)
 
 void Race::Update(double tick)
 {
-    std::cout << "Tick value: " << tick << std::endl;
     // If the race is not dead
     if(!m_DeadRace)
     {
@@ -100,6 +111,7 @@ void Race::Update(double tick)
                 m_TimeInPeace = 0;
             }
             m_Population += tick * 1000 * m_PopulationCurrentGrowthRate;
+            m_MilitaryPopulation = m_Population * (m_MilitaryRate + 0.25 * m_MilitaryTrait);
             m_TimeInPeace += tick;
         }
         else
@@ -118,14 +130,36 @@ void Race::Update(double tick)
                     m_PopulationCurrentGrowthRate = 0;
                 m_TimeInWar = 0;
             }
-            m_Population += tick * 1000 * m_PopulationCurrentGrowthRate;
+            int death = tick * 1000 * m_PopulationCurrentGrowthRate;
+            if(m_MilitaryPopulation > 0)
+            {
+                int diff = m_MilitaryPopulation + death;
+                if(diff < 0)
+                {
+                    m_MilitaryPopulation = 0;
+                    m_Population += diff;
+                }
+                else
+                {
+                    m_MilitaryPopulation += death;
+                }
+            }
+            else
+            {
+                m_Population += death;
+            }
             m_TimeInWar += tick;
         }
         if(m_Population <= 0) 
             m_DeadRace = true;
     }
+
+    // ------
+    // Debug
+    // ------
     std::cout << "Growth Rate: " << m_PopulationCurrentGrowthRate << std::endl;
-    std::cout << "New population :" << m_Population << std::endl;
+    std::cout << "Population:          " << m_Population << std::endl;
+    std::cout << "Military population: " << m_MilitaryPopulation << std::endl;
     std::cout << std::endl;
     //int i;
     //std::cin >> i;
