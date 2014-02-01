@@ -9,6 +9,8 @@ public:
     Race(long int, float, float, float, float, float, float, float, bool);
 
     void Update(double tick);
+    void UpdatePopulation(double tick);
+    void UpdateRelationShips(double tick);
 
     void setPopulationPeaceGrowth(double time) {m_PopulationPeaceGrowth = time;}
     void setPopulationPeaceGrowthRate(float rate) {m_PopulationPeaceGrowthRate = rate;}

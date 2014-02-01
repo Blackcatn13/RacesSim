@@ -95,6 +95,16 @@ void Race::addNaturistTrait(int traits)
 
 void Race::Update(double tick)
 {
+
+}
+
+void Race::UpdateRelationShips(double tick)
+{
+
+}
+
+void Race::UpdatePopulation(double tick)
+{
     // If the race is not dead
     if(!m_DeadRace)
     {
