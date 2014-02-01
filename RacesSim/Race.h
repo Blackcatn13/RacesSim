@@ -3,6 +3,7 @@
 
 #include <string>
 #include <vector>
+#include <cstdlib>
 #include "Structs.h"
 
 using namespace std;
@@ -16,19 +17,21 @@ public:
     ~Race(void);
     Race(long int, float, float, float, float, float, float, float, bool);
 
-    void Update(double tick);
-    void UpdatePopulation(double tick);
-    void UpdateRelationShips(double tick);
+    void    Update(double tick);
+    void    UpdatePopulation(double tick);
+    void    UpdateRelationShips(double tick);
 
-    void setPopulationPeaceGrowth(double time) {m_PopulationPeaceGrowth = time;}
-    void setPopulationPeaceGrowthRate(float rate) {m_PopulationPeaceGrowthRate = rate;}
-    void setPopulationWarGrowth(double time) {m_PopulationWarGrowth = time;}
-    void setPopulationWarGrowthRate(float rate) {m_PopulationWarGrowthRate = rate;}
-    void setFighting(bool fight) {m_Fighting = fight;}
-    void setPopulationGettingDamage(bool damage) {m_PopulationGettingDamage = damage;}
-    void addMilitaryTrait(int traits);
-    void addScienceTrait(int traits);
-    void addNaturistTrait(int traits);
+    void    setPopulationPeaceGrowth(double time) {m_PopulationPeaceGrowth = time;}
+    void    setPopulationPeaceGrowthRate(float rate) {m_PopulationPeaceGrowthRate = rate;}
+    void    setPopulationWarGrowth(double time) {m_PopulationWarGrowth = time;}
+    void    setPopulationWarGrowthRate(float rate) {m_PopulationWarGrowthRate = rate;}
+    void    setFighting(bool fight) {m_Fighting = fight;}
+    void    setPopulationGettingDamage(bool damage) {m_PopulationGettingDamage = damage;}
+    void    addMilitaryTrait(int traits);
+    void    addScienceTrait(int traits);
+    void    addNaturistTrait(int traits);
+
+    float   getCrossoverValue() {return (rand() % 100 + 1) * m_CrossoverProbability;}
 
 protected:
     // ------------------
@@ -75,8 +78,14 @@ protected:
     float       m_ScienceTrait;
     // Percentage of naturist traits of the race.
     float       m_NaturistTrait;
-    // Percentage of population converted to military
+    // Percentage of population converted to military.
     float       m_MilitaryRate;
+    // Minimum number of population needed to create a new city.
+    long int    m_NewCityPopulation;
+    // Type of policy of the new cities.
+    CityPolicy  m_NewCityPolicy;
+    // Rate for the population rate new city policy.
+    float       m_NewCityPopulationRate;
 
     // ------------------
     // Auxiliary vars

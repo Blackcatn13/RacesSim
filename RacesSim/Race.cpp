@@ -100,7 +100,30 @@ void Race::Update(double tick)
 
 void Race::UpdateRelationShips(double tick)
 {
-
+    for (relation::iterator it = m_RelationShip.begin(); it != m_RelationShip.end(); it++)
+    {
+        // If we have a very good relation we try if we can crossover with them.
+        if(it->Relation >= 100)
+        {
+            // We get a number for the crossover.
+            float crossValue = getCrossoverValue();
+            // We ask the other race it's number.
+            // if( crossValue < 
+            // If it's higher than ours proceed.
+            // We ask if the other race have enough population to make a new city.
+            // If true and we have it also, we create the new city. 
+            // The new city have a new race with a crossover parameters.
+        }
+        else if(it->Relation >= 0)
+        {
+            // We Increase our relationship if we are not in war with them.
+            it->Relation += 0.01 * tick;
+        }
+        else if(it->Fighting)
+        {
+            it->Relation -= 0.02 * tick;
+        }
+    }
 }
 
 void Race::UpdatePopulation(double tick)

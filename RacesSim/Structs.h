@@ -5,10 +5,12 @@
 using namespace std;
 
 struct RaceRelations {
-    string Name;
-    int Relation;
+    string  Name;
+    float   Relation;
+    bool    Fighting;
 };
 
+enum CityPolicy {DIVIDE = 0, QUARTER, RATE};
 
 
 #endif
