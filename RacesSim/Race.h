@@ -1,6 +1,14 @@
 #ifndef Race_H
 #define Race_H
 
+#include <string>
+#include <vector>
+#include "Structs.h"
+
+using namespace std;
+
+typedef vector<RaceRelations> relation; 
+
 class Race
 {
 public:
@@ -23,6 +31,15 @@ public:
     void addNaturistTrait(int traits);
 
 protected:
+    // ------------------
+    // Race Parameters
+    // ------------------
+
+    // Name of the race, to identify it.
+    string      m_RaceName;
+    // Vector with the relationship with other races.
+    relation    m_RelationShip;
+
     // ------------------
     // Race Values
     // ------------------
