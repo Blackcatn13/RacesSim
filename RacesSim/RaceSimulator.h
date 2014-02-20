@@ -1,7 +1,7 @@
 #ifndef RaceSimulator_H
 #define RaceSimulator_H
 
-#include "SimStructs.h"
+#include "Structs.h"
 
 class RaceSimulator
 {

@@ -4,7 +4,7 @@
 #include <string>
 #include <vector>
 #include <cstdlib>
-#include "RaceStructs.h"
+#include "Structs.h"
 #include "RaceSimulator.h"
 
 using namespace std;
