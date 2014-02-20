@@ -4,6 +4,7 @@
 #include <string>
 #include <vector>
 #include <cstdlib>
+#include <algorithm>
 #include "Structs.h"
 #include "RaceSimulator.h"
 
@@ -89,6 +90,8 @@ protected:
     CityPolicy  m_NewCityPolicy;
     // Rate for the population rate new city policy.
     float       m_NewCityPopulationRate;
+    // View distance of the city
+    int         m_ViewDistance;
 
     // ------------------
     // Auxiliary vars

@@ -202,4 +202,24 @@ void Race::UpdatePopulation(double tick)
 
 void Race::UpdateVision()
 {
+    nameList neighbors = m_Master->getNeighbors(m_RaceName, m_ViewDistance);
+    for(nameList::iterator it = neighbors.begin(); it != neighbors.end(); it++)
+    {
+        if(find(m_RelationShip.begin(), m_RelationShip.end(), *it) != m_RelationShip.end())
+        {
+            continue;
+        }
+        else if(m_RelationShip.end()->Name == *it)
+        {
+            continue;
+        }
+        else
+        {
+            RaceRelations r;
+            r.Name = *it;
+            r.Fighting = false;
+            r.Relation = 0;
+            m_RelationShip.push_back(r);
+        }
+    }
 }
