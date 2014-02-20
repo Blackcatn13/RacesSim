@@ -4,11 +4,10 @@
 #include <string>
 #include <vector>
 #include <cstdlib>
-#include "Structs.h"
+#include "RaceStructs.h"
+#include "RaceSimulator.h"
 
 using namespace std;
-
-typedef vector<RaceRelations> relation; 
 
 class Race
 {
@@ -20,6 +19,7 @@ public:
     void    Update(double tick);
     void    UpdatePopulation(double tick);
     void    UpdateRelationShips(double tick);
+    void    UpdateVision();
 
     void    setPopulationPeaceGrowth(double time) {m_PopulationPeaceGrowth = time;}
     void    setPopulationPeaceGrowthRate(float rate) {m_PopulationPeaceGrowthRate = rate;}
@@ -31,9 +31,12 @@ public:
     void    addScienceTrait(int traits);
     void    addNaturistTrait(int traits);
 
-    float   getCrossoverValue() {return (rand() % 100 + 1) * m_CrossoverProbability;}
+    float   getCrossoverValue() {return ((rand() % 100 + 1) * m_CrossoverProbability);}
 
 protected:
+
+    RaceSimulator *m_Master;
+
     // ------------------
     // Race Parameters
     // ------------------
@@ -105,4 +108,6 @@ protected:
 };
 
 #endif
+
+
 

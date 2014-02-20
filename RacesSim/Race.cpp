@@ -26,6 +26,7 @@ Race::Race(void)
     m_NaturistTrait = 0;
     m_ScienceTrait = 0;
     m_TotalTraitsPoints = 0;
+    m_Master = RaceSimulator::getInstance();
 }
 
 
@@ -58,6 +59,7 @@ Race::Race(long int pop, float popRate, float expRate, float figRate, float attR
     m_NaturistTrait = 0;
     m_ScienceTrait = 0;
     m_TotalTraitsPoints = 0;
+    m_Master = RaceSimulator::getInstance();
 }
 
 void Race::addMilitaryTrait(int traits)
@@ -95,7 +97,7 @@ void Race::addNaturistTrait(int traits)
 
 void Race::Update(double tick)
 {
-
+    UpdateVision();
 }
 
 void Race::UpdateRelationShips(double tick)
@@ -113,7 +115,7 @@ void Race::UpdateRelationShips(double tick)
             // We ask if the other race have enough population to make a new city.
             // If true and we have it also, we create the new city. 
             // The new city have a new race with a crossover parameters.
-        }
+        }   
         else if(it->Relation >= 0)
         {
             // We Increase our relationship if we are not in war with them.
@@ -196,4 +198,8 @@ void Race::UpdatePopulation(double tick)
     std::cout << std::endl;
     //int i;
     //std::cin >> i;
+}
+
+void Race::UpdateVision()
+{
 }

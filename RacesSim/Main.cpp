@@ -4,6 +4,8 @@
 
 int main ()
 {
+    //std::vector<RaceRelations> v1(10, RaceRelations());
+
     Race r = Race(100, 0.5, 0, 0, 0, 0, 0, .15, false);
     r.setPopulationPeaceGrowth(1);
     r.setPopulationPeaceGrowthRate(0.1);
@@ -34,7 +36,7 @@ int main ()
         if(tick > 0.1)
         {
             std::cout << "Iteration:   " << i << std::endl;
-            r.Update(tick);
+            r.UpdatePopulation(tick);
             init_Time = next_Time;
             i++;
             //std::cin.get();
